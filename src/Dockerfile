@@ -2,7 +2,7 @@
 FROM node:18-alpine
 
 # Set the working directory inside the container
-WORKDIR /DigitalWallet
+WORKDIR /group-service
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose the service port
-EXPOSE 5001
+EXPOSE 5004
 
 # Start the application
 CMD ["npm" , "run", "debug-dev"]

@@ -1,154 +1,40 @@
-#version: "3.8"
-#
-#services:
-#  # MongoDB for Users
-#  mongodb-user:
-#    image: mongodb/mongodb-community-server:latest
-#    container_name: mongodb
-#    ports:
-#      - "27017:27017"
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: root
-#      MONGO_INITDB_ROOT_PASSWORD: root
-#    volumes:
-#      - C:/Users/Sahar/WebstormProjects/DigitalWallet/mongo-data:/data/db
-#
-##   User Service
-#  user_service_server:
-#    container_name: user_service_server
-#    build:
-#      context: ./users
-#      dockerfile: Dockerfile
-#    ports:
-#      - "5001:5001"
-#    environment:
-#      PORT: 5001
-#      MONGO_URI: mongodb://root:root@mongodb-user:27017/userDb
-#    depends_on:
-#      - mongodb-user
-#    volumes:
-#      - ./users:/usr/src/app
 
 version: "3.8"
 
 services:
-  mongodb-user:
-    image: mongo:6.0
-    container_name: mongodb-user
+
+#  # MongoDB for Groups
+  mongodb-group:
+    image: mongo:latest
+    container_name: mongodb-group
     ports:
-      - "27017:27017"
+      - "27019:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
-      - /host_mnt/c/Users/Sahar/WebstormProjects/DigitalWallet/mongo-data:/data/db
+      - /host_mnt/c/Users/Sahar/WebstormProjects/group-service/transaction-data:/data/db
     networks:
       - digital_wallet_network
 
-#   User Service
-  user_service_server:
-    container_name: user_service_server
+#  # Group Service
+  group_service_server:
+    container_name: group_service_server
     build:
       context: .
       dockerfile: src/Dockerfile
     ports:
-      - "5001:5001"
+      - "5004:5004"
     environment:
-      PORT: 5001
-      MONGO_URI: mongodb://root:root@mongodb-user:27017/userDb?authSource=admin
+      PORT: 5004
+      MONGO_URI: mongodb://root:root@mongodb-group:27017/groupDb?authSource=admin
     depends_on:
-      - mongodb-user
+      - mongodb-group
     volumes:
-      - ./users:/usr/src/app
-      - ./logs:/usr/src/app/logs
+      - ./groups:/usr/src/app
     networks:
       - digital_wallet_network
 
-
-# Define a shared network for communication
 networks:
   digital_wallet_network:
     driver: bridge
-
-  # MongoDB for Transactions
-#  mongodb-transaction:
-#    image: mongo:6.0
-#    container_name: mongodb-transaction
-#    ports:
-#      - "27018:27017"
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: root
-#      MONGO_INITDB_ROOT_PASSWORD: root
-#    volumes:
-#      - /host_mnt/c/Users/Sahar/WebstormProjects/DigitalWallet/transaction-data:/data/db
-#    networks:
-#      - digital_wallet_network
-
-  # Transaction Service
-#  transaction_service_server:
-#    container_name: transaction_service_server
-#    build:
-#      context: ./transactions
-#      dockerfile: Dockerfile
-#    ports:
-#      - "5002:5002"
-#    environment:
-#      PORT: 5002
-#      MONGO_URI: mongodb://root:root@mongodb-transaction:27017/transactionDb?authSource=admin
-#    depends_on:
-#      - mongodb-transaction
-#    volumes:
-#      - ./transactions:/usr/src/app
-#    networks:
-#      - digital_wallet_network
-
-
-
-
-
-
-
-
-#
-#  # MongoDB for Groups
-#  mongodb-group:
-#    image: mongo:latest
-#    container_name: mongodb-group
-#    ports:
-#      - "27019:27017"
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: root
-#      MONGO_INITDB_ROOT_PASSWORD: root
-#    volumes:
-#      - ./groupDb/db:/groupDb/db
-
-
-#
-#  # Notification Service
-#  notification_service_server:
-#    container_name: notification_service_server
-#    build:
-#      context: ./notifications
-#      dockerfile: Dockerfile
-#    ports:
-#      - "5003:5003"
-#    environment:
-#      PORT: 5003
-#    volumes:
-#      - ./notifications:/usr/src/app
-#
-#  # Group Service
-#  group_service_server:
-#    container_name: group_service_server
-#    build:
-#      context: ./groups
-#      dockerfile: Dockerfile
-#    ports:
-#      - "5004:5004"
-#    environment:
-#      PORT: 5004
-#      MONGO_URI: mongodb://root:root@mongodb-group:27017/groupDb
-#    depends_on:
-#      - mongodb-group
-#    volumes:
-#      - ./groups:/usr/src/app

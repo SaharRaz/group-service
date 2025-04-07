@@ -1,7 +1,7 @@
 import express from 'express';
 import groupsController from '../controller/groups.controller.js';
 import validateSchema from '../middleware/groups.validateSchema.middleware.js';
-import { createGroupSchema, updateGroupSchema } from './groups.routes.schema.js';
+import { createGroupSchema, updateGroupSchema } from './group.routes.schema.js';
 
 const router = express.Router();
 

@@ -1,9 +1,6 @@
 import express from 'express';
 import connectDB from './db/dbConnection.js';
-import userRoutes from './routes/user.routes.js';
-// import transactionsRoutes from './routes/transaction.routes.js';
-// import groupsRoutes from './routes/group.routes.js';
-// import notificationsRoutes from './routes/notification.routes.js';
+import groupsRoutes from './routes/group.routes.js';
 import logger from './systems/logger.js';
 
 // Initialize MongoDB Connection
@@ -22,20 +19,16 @@ const startServices = async () => {
     app.use(express.json());
 
     // Register all routes for each service
-    app.use('/users', userRoutes);
-    // app.use('/transactions', transactionsRoutes);
-    // app.use('/groups', groupsRoutes);
-    // app.use('/notifications', notificationsRoutes);
+    app.use('/groups', groupsRoutes);
+
 
     // Define ports for each service
-    const PORTS = [5001];
+    const PORT = 5004;
 
     // Start an instance of the app for each service
-    PORTS.forEach((port, index) => {
-        app.listen(port, () => {
-            logger.info(`Service ${index + 1} running on port ${port}`);
-            console.log(`Service ${index + 1} running on http://localhost:${port}`);
-        });
+    app.listen(PORT, () => {
+        logger.info(`Service ${PORT} running on port ${PORT}`);
+        console.log(`Service ${PORT} running on http://localhost:${PORT}`);
     });
 };
 

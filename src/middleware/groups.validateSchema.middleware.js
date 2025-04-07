@@ -1,11 +1,10 @@
-const { groupSchema } = require('../routes/group.routes.schema.js');
 
-const validateSchema = (req, res, next) => {
-    const { error } = groupSchema.validate(req.body);
+const validateSchema = (schema) => (req, res, next) => {
+    const { error } = schema.validate(req.body, { abortEarly: false });
     if (error) {
-        return res.status(400).json({ message: error.details[0].message });
+        return res.status(400).json({ errors: error.details.map((err) => err.message) });
     }
     next();
 };
 
-module.exports = { validateSchema };
+export default validateSchema;

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/digitalWallet.iml" filepath="$PROJECT_DIR$/.idea/digitalWallet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/group-service.iml" filepath="$PROJECT_DIR$/.idea/group-service.iml" />
     </modules>
   </component>
 </project>

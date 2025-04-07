@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import logger from '../systems/logger.js';
 
 const connectDB = async () => {
-    const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/digitalWallet';
+    const mongoURI = process.env.MONGO_URI || 'mongodb://root:root@mongodb-group:27017/groupDb?authSource=admin';
 
     try {
         await mongoose.connect(mongoURI, {
