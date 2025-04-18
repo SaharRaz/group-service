@@ -38,3 +38,4 @@ services:
 networks:
   digital_wallet_network:
     driver: bridge
+    external: true
