@@ -1,34 +1,10 @@
 import mongoose from 'mongoose';
 
-const groupSchema = new mongoose.Schema(
-    {
-        name: {
-            type: String,
-            required: true,
-            unique: true,
-            trim: true,
-        },
-        members: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'User',
-                required: true,
-            }
-        ],
-        description: {
-            type: String,
-            trim: true,
-            default: '',
-        },
-        avatarUrl: {
-            type: String,
-            trim: true,
-            default: '',
-        }
-    },
-    {
-        timestamps: true, // adds createdAt and updatedAt automatically
-    }
-);
+const GroupSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    members: [{ type: String, required: true }],
+    description: { type: String },
+    avatarUrl: { type: String }
+}, { timestamps: true });
 
-export default mongoose.model('Group', groupSchema);
+export default mongoose.model('Group', GroupSchema);

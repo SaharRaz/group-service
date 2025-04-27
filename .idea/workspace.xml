@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9738058e-c90e-4fe9-94ae-0b6ea9b65c43" name="Changes" comment="axios implement">
+      <change afterPath="$PROJECT_DIR$/src/configs/awilix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configs/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configs/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/group.schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/groups.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/group.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/dbConnection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/dbConnection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/groups.validateSchema.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/validations/group.validateSchema.middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/group.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/group.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/group.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/group.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/group.routes.schema.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/systems/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/logger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/systems/utils.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SaharRaz&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SaharRaz/group-service.git&quot;,
+    &quot;accountId&quot;: &quot;2aceee64-01fd-44fa-b72b-c3a9cae5fbf5&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2vPiLoDRt2qgmoumiF3uBnvAmu7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "for__code__review",
+    "javascript.nodejs.core.library.configured.version": "22.12.0",
+    "javascript.nodejs.core.library.typings.version": "22.12.0",
+    "last_opened_file_path": "C:/Users/Sahar/WebstormProjects/group-service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sahar\WebstormProjects\group-service\src\validations" />
+      <recent name="C:\Users\Sahar\WebstormProjects\group-service\src\middleware" />
+      <recent name="C:\Users\Sahar\WebstormProjects\group-service" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9738058e-c90e-4fe9-94ae-0b6ea9b65c43" name="Changes" comment="" />
+      <created>1744053056416</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744053056416</updated>
+      <workItem from="1744053057626" duration="138000" />
+      <workItem from="1744812611232" duration="3515000" />
+      <workItem from="1744840461514" duration="1145000" />
+      <workItem from="1744961596883" duration="11706000" />
+      <workItem from="1745322175539" duration="577000" />
+      <workItem from="1745412269864" duration="577000" />
+      <workItem from="1745604266242" duration="11379000" />
+    </task>
+    <task id="LOCAL-00001" summary="axios implement">
+      <option name="closed" value="true" />
+      <created>1744992132346</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744992132346</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="axios implement" />
+    <option name="LAST_COMMIT_MESSAGE" value="axios implement" />
+  </component>
+</project>
