@@ -1,61 +1,63 @@
 import express from 'express';
-import groupsController from '../controller/groups.controller.js';
-import validateSchema from '../middleware/groups.validateSchema.middleware.js';
-import { createGroupSchema, updateGroupSchema } from './group.routes.schema.js';
+import validateSchema from '../validations/group.validateSchema.middleware.js';
+import { createGroupSchema } from '../schema/group.schema.js';
 
-const router = express.Router();
+export default function (controller) {
+    const router = express.Router();
 
-// Create a new group
-router.post('/', validateSchema(createGroupSchema), async (req, res) => {
-    try {
-        const group = await groupsController.createGroup(req.body);
-        res.status(201).json(group);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
+    router.post('/createGroup', validateSchema(createGroupSchema), async (req, res) => {
+        try {
+            const group = await controller.createGroup(req.body);
+            res.status(201).json(group);
+        } catch (err) {
+            console.error('POST /createGroup - Error:', err.message);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    });
 
-// Get all groups
-router.get('/', async (req, res) => {
-    try {
-        const groups = await groupsController.getAllGroups();
-        res.status(200).json(groups);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
+    router.get('/getAllGroups', async (req, res) => {
+        try {
+            const groups = await controller.getAllGroups();
+            res.status(200).json(groups);
+        } catch (err) {
+            console.error('GET /getAllGroups - Error:', err.message);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    });
 
-// Get a group by ID
-router.get('/:id', async (req, res) => {
-    try {
-        const group = await groupsController.getGroupById(req.params.id);
-        if (!group) return res.status(404).json({ error: 'Group not found' });
-        res.status(200).json(group);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
+    router.get('/getGroupById/:groupId', async (req, res) => {
+        try {
+            const group = await controller.getGroupById(req.params.groupId);
+            if (!group) return res.status(404).json({ error: 'Group not found' });
+            res.status(200).json(group);
+        } catch (err) {
+            console.error('GET /getGroupById/:groupId - Error:', err.message);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    });
 
-// Update a group by ID
-router.put('/:id', validateSchema(updateGroupSchema), async (req, res) => {
-    try {
-        const updatedGroup = await groupsController.updateGroup(req.params.id, req.body);
-        if (!updatedGroup) return res.status(404).json({ error: 'Group not found' });
-        res.status(200).json(updatedGroup);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
+    router.put('/updateGroup/:groupId', async (req, res) => {
+        try {
+            const updated = await controller.updateGroup(req.params.groupId, req.body);
+            if (!updated) return res.status(404).json({ error: 'Group not found' });
+            res.status(200).json(updated);
+        } catch (err) {
+            console.error('PUT /updateGroup/:groupId - Error:', err.message);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    });
 
-// Delete a group by ID
-router.delete('/:id', async (req, res) => {
-    try {
-        const deletedGroup = await groupsController.deleteGroup(req.params.id);
-        if (!deletedGroup) return res.status(404).json({ error: 'Group not found' });
-        res.status(200).json({ message: 'Group deleted successfully' });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
 
-export default router;
+    router.delete('/deleteGroup/:groupId', async (req, res) => {
+        try {
+            const deleted = await controller.deleteGroup(req.params.groupId);
+            if (!deleted) return res.status(404).json({ error: 'Group not found' });
+            res.status(200).json({ message: 'Group deleted successfully' });
+        } catch (err) {
+            console.error('DELETE /deleteGroup/:groupId - Error:', err.message);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    });
+
+    return router;
+}
